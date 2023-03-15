@@ -22,7 +22,11 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id ;
     @NonNull
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Brand.java
     String brand ;
+=======
+    String brandName ;
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Brand.java
 
 
     @OneToMany(mappedBy = "brand", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)

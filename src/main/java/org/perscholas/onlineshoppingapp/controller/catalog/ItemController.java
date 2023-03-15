@@ -11,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
+=======
+import org.springframework.ui.Model;
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +22,11 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/api")
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
 @Slf4j
+=======
+
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
 public class ItemController {
     private ItemService itemService;
 @Autowired
@@ -26,6 +34,7 @@ public class ItemController {
         this.itemService = itemService;
     }
 
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
 
     @PostMapping("/addItem")
     public ResponseEntity<ItemDto> saveItem(@RequestBody  ItemDto itemDto  , @RequestParam Long typeId,  @RequestParam Long brandId){
@@ -38,6 +47,29 @@ public class ItemController {
     @PostMapping("/brand")
     public ResponseEntity<Brand> saveBrand (@RequestBody Brand brand){
         return new ResponseEntity<Brand>(itemService.saveBrand(brand), HttpStatus.CREATED);
+=======
+@PostMapping("/form/addItem")
+public String updateOrCreateItem(@ModelAttribute("itemDto") ItemDto itemDto,@RequestParam Long typeId,@RequestParam Long brandId, Model model){
+    model.addAttribute("itemDto", itemService.saveItem(itemDto,typeId,brandId));
+    model.addAttribute("message", "success");
+    return "form";
+}
+
+
+
+@GetMapping("/form")
+public String saveBrand (){
+//log.info("get mapping get called");
+
+    return "xx";
+}
+    @PostMapping("/form/addBrand")
+    public String saveBrand (@ModelAttribute ("brand") Brand brand){
+//        log.info("get mapping get called 1st ");
+            itemService.saveBrand(brand);
+//        log.info("get mapping get called 2st ");
+        return "xx";
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
     }
 
     @PostMapping("/type")
@@ -49,27 +81,44 @@ public class ItemController {
     public String getAllBrands() {
 
        itemService.getAllBrands();
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
       return  "index";
+=======
+      return  "xx";
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
     }
 
     @GetMapping("/types")
     public String getAllTypes() {
 
       itemService.getAllTypes();
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
       log.info( itemService.getAllTypes().toString());
         return  "index";
+=======
+//      log.info( itemService.getAllTypes().toString());
+        return  "xx";
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
     }
 
     @GetMapping("brands/{brandId}")
     public String getBrandById(@PathVariable(value = "brandId") long brandId) {
         itemService.getBrandById(brandId);
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
         return "index";
+=======
+        return "xx";
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
     }
 
     @GetMapping("types/{typeId}")
     public String getTypeById(@PathVariable(value = "typeId") long typeId) {
          itemService.getTypeById(typeId);
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
          return "index";
+=======
+         return "xx";
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
     }
 
     @GetMapping()
@@ -81,8 +130,16 @@ public class ItemController {
     ) {
 
          itemService.getAllItems(pageNo, pageSize, sortBy, sortDir);
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
          return "index";
+=======
+         return "xx";
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
     }
 
 
 }
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java
+=======
+//
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/controller/catalog/ItemController.java

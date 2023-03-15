@@ -22,10 +22,19 @@ public class Type {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     @NonNull
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Type.java
     String type;
+=======
+    String typeName;
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Type.java
 
 
     @OneToMany(mappedBy = "type", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
     private Set<Item> items = new LinkedHashSet<>();
 
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Type.java
+=======
+    public Type(int i, String type) {
+    }
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Type.java
 }

@@ -23,12 +23,20 @@ public class Item {
     String description;
     @NonNull
     float price;
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Item.java
     @NonNull
     String pictureURL;
 
 
     @ToString.Exclude
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
+=======
+
+
+
+    @ToString.Exclude
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true,fetch = FetchType.EAGER)
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Item.java
     @JoinColumn(name = "image_id")
     private Image image;
 
@@ -44,4 +52,8 @@ public class Item {
     @JoinColumn(name = "type_id")
     private Type type;
 
+<<<<<<< HEAD:src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Item.java
+=======
+
+>>>>>>> b3276dd (applying security):onlineshoppingapp/src/main/java/org/perscholas/onlineshoppingapp/models/catalog/Item.java
 }

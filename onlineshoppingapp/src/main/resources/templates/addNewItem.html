@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/frag.html :: head}"></div>
+<!-- End head- -->
+<body>
+<!-- Navigation-->
+<div th:replace="~{fragments/frag.html :: nav}"></div>
+<style>
+    @media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+    .bg-grey {
+    background-color: #eae8e8;
+    }
+
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-grey {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-grey {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    }
+    }
+  </style>
+<!--<section class="" style="background-color: #eee;">-->
+<section class="h-100 h-custom" style="background-color: #d2c9ff;">
+    <div class="container h-100">
+
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">New Product Registration</p>
+<!--                    <form th:action="@{/user/form/processing}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">-->
+<!--                    <form action="#" th:action="@{/addNewItem}" th:object="${itemDto}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">-->
+
+                    <form action="#" th:action="@{/addNewItem}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
+                        <div class="row">
+               <div class="col">
+                   <div class="row">
+                       <div class="col">
+                           <div class="d-flex flex-row align-items-center mb-4">
+                               <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                               <div class="form-outline flex-fill mb-0">
+
+                                   <input type="text" name="name" id="itemName" class="form-control"    th:text="${name}"/>
+
+                                   <label class="form-label" for="itemName">Name</label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col">
+                           <div class="d-flex flex-row align-items-center mb-4">
+                               <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                               <div class="form-outline flex-fill mb-0">
+                                   <select  id="typeId" name="type" class="form-select" aria-label="Default select example">
+                                       <option selected>Open this select menu</option>
+                                       <option th:each="x: ${type}"  th:text="${x.typeName}"  th:value="${x.id}"   ></option>
+
+                                   </select>
+                                   <label class="form-label" for="typeId">Type Name</label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col">
+                           <div class="d-flex flex-row align-items-center mb-4">
+                               <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                               <div class="form-outline flex-fill mb-0">
+                                   <select  id="brandId" name="brand" class="form-select" aria-label="Default select example">
+                                       <option selected>Open this select Brand</option>
+                                       <option th:each="y: ${brand}"  th:text="${y.brandName}"  th:value="${y.id}"   ></option>
+                                   </select>
+                                   <label class="form-label" for="brandId">Brand Name</label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col">
+                           <div class="d-flex flex-row align-items-center mb-4">
+                               <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                               <div class="form-outline flex-fill mb-0">
+                                   <input name="price" type="text" id="priceId" class="form-control" />
+
+                                   <label class="form-label" for="priceId" th:text="${price}" >Price</label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+
+               <div class="col">
+                   <div class="row">
+                       <div class="col">
+                           <div class="d-flex flex-row align-items-center mb-4">
+                               <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                               <div class="form-outline flex-fill mb-0">
+                                   <!--                                            <input name="price" type="text" id="descriptionId" class="form-control" />-->
+                                   <textarea name="description"  type="text" class="form-control mb-3" id="descriptionId"
+                                             rows="3"></textarea>
+                                   <label class="form-label" for="descriptionId" th:text="${description}">Description</label>
+
+                               </div>
+                           </div>
+
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col">
+                           <div class="d-flex flex-row align-items-center mb-4">
+                               <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                               <div class="form-outline flex-fill mb-0">
+                                   <input name="image" class="form-control form-control-lg" id="imageId" type="file">
+                                   <label  class="form-label" for="imageId">Image</label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+                   <div class="row">
+                       <div class="col">
+                           <div class="row d-flex justify-content-center align-items-center h-100">
+
+                               <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                   <button type="submit" class="btn btn-success btn-lg">Add New Product </button>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+
+
+
+               </div>
+
+
+                    </form>
+                </div></div>
+            <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!--  -footer- -->
+<div th:replace="~{fragments/frag.html :: footer}"></div>
+<!--end footer- -->
+</body>
+</html>

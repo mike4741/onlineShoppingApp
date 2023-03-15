@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Data Form</title>
+</head>
+<body>
+<h1>Insert Data Form</h1>
+
+
+<form action="#" th:action="@{/brand}" th:object="${brand}" method="get">
+    <label >Id:</label>
+    <input  type="text"
+            class="form-control"
+            id="id1"
+            name="id"
+            placeholder="ID auto generated"
+            th:text="${id}"
+            disabled />
+
+    <label >BrandName:</label>
+    <input type="text"
+           id="brandName1"
+           name="brandName"
+           th:text="${brandName}"/>
+
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
