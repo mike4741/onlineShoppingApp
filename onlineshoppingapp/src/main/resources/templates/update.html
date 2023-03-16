@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- -head- -->
+<div th:replace="~{fragments/frag.html :: head}"></div>
+<!-- End head- -->
+<body>
+<!-- Navigation-->
+<div th:replace="~{fragments/frag.html :: nav}"></div>
+<!-- End Navigation-->
+<!-- Header-->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Shop in style</h1>
+            <p class="lead fw-normal text-white-50 mb-0">With this shop home page template</p>
+        </div>
+    </div>
+</header>
+<!-- Section-->
+<section class="row">
+<!--    ***********************-->
+
+<!--    <h2>ABOUT PAGE</h2>-->
+<!--    <table class="table" >-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th scope="col">#</th>-->
+<!--            <th scope="col">Brand Name</th>-->
+<!--            <th scope="col">update</th>-->
+
+
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="br: ${brand}">-->
+<!--            <th scope="row" th:text="${br.id}"></th>-->
+<!--            <td th:text="${br.brandName}"></td>-->
+<!--            <td th:text="${br.brandName}"></td>-->
+
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--    <h1>change password</h1>-->
+    <form th:object="${myUser}" method="POST">
+
+        <div class="form-group">
+            <label for="InputPassword1">old Password</label>
+            <input   name="password" type="password"   th:text="${password}" class="form-control" id="InputPassword1" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword">New Password</label>
+            <input   name="password" type="password"   th:text="${password}" class="form-control" id="exampleInputPassword" placeholder="Password">
+        </div>
+<!--        <input type="hidden" th:field="*{id}"/>-->
+<!--        <label for="name">Name:</label>-->
+<!--        <input type="text" id="name" th:field="*{brandName}" required/><br/>-->
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" id="email" th:field="*{email}" required/><br/>-->
+<!--        <label for="phone">Phone:</label>-->
+<!--        <input type="tel" id="phone" th:field="*{phone}" required/><br/>-->
+        <button type="submit">Update Record</button>
+    </form>
+
+
+</section>
+
+    <!--  -footer- -->
+    <div th:replace="~{fragments/frag.html :: footer}"></div>
+    <!--end footer- -->
+</body>
+</html>

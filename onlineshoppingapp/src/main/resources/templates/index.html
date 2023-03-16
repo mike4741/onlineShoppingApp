@@ -12,7 +12,7 @@
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            <p class="lead fw-normal text-white-50 mb-0"></p>
         </div>
     </div>
 </header>
@@ -26,23 +26,25 @@
             <span class="border">
 
 
-            <div class="product" style="width: 18rem;">
-                <div class="product-img">
-                    <img th:src="${item.image.url}" class="card-img-top" alt="...">
+            <div class="product " style="width: 18rem;">
+                      <div class="product-img">
+                          <img th:src="${item.image.url}" class="card-img-top" alt="...">
+                     </div>
+
                 </div>
 
-            </div>
-            <div class="product-body">
-                <p class="product-category" th:text="${item.brand.brandName}"></p>
-                <h3 class="product-name"><a th:text="${item.name}"></a></h3>
-                <h4 class="product-price" th:text="${item.price}"></h4>
-            </div><div class="add-to-cart-btn">
+                <div class="product-body">
+                   <p class="product-category" th:text="${item.brand.brandName}"></p>
+                   <h3 class="product-name"><a th:text="${item.name}"></a></h3>
+                   <h4 class="product-price" th:text="'$ '+ ${item.price}"></h4>
+                </div>
+                <div class="add-to-cart-btn">
                     <form th:action="@{/addNewCart}" method="post">
 
                         <input type="hidden" name="Id" th:value="${item.id}"/>
                         <button type="submit" class="btn btn-success btn-lg">Add to Cart </button>
                     </form>
-            </div>
+               </div>
 
                   </span>
         </section>

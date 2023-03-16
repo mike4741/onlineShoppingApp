@@ -52,7 +52,7 @@
 <!--                    <form th:action="@{/user/form/processing}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">-->
 <!--                    <form action="#" th:action="@{/addNewItem}" th:object="${itemDto}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">-->
 
-                    <form action="#" th:action="@{/addNewItem}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
+                    <form  th:action="@{/addNewItem}" method="post" enctype="multipart/form-data" accept="image/png, image/jpeg">
                         <div class="row">
                <div class="col">
                    <div class="row">
@@ -102,9 +102,10 @@
                            <div class="d-flex flex-row align-items-center mb-4">
                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                <div class="form-outline flex-fill mb-0">
-                                   <input name="price" type="text" id="priceId" class="form-control" />
+                                   <input name="price" type="text" id="priceId" th:text="${price}" class="form-control" />
 
-                                   <label class="form-label" for="priceId" th:text="${price}" >Price</label>
+                                   <label class="form-label" for="itemName">Price</label>
+<!--                                   <label class="form-label" for="priceId" th:text="${price}" >Price</label>-->
                                </div>
                            </div>
                        </div>
@@ -119,10 +120,11 @@
                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                <div class="form-outline flex-fill mb-0">
                                    <!--                                            <input name="price" type="text" id="descriptionId" class="form-control" />-->
-                                   <textarea name="description"  type="text" class="form-control mb-3" id="descriptionId"
+                                   <textarea name="description"  type="text" class="form-control mb-3" id="descriptionId"  th:text="${description}"
                                              rows="3"></textarea>
-                                   <label class="form-label" for="descriptionId" th:text="${description}">Description</label>
+                                   <label class="form-label" for="descriptionId" >Description</label>
 
+<!--                                   <label class="form-label" for="descriptionId">Description</label>-->
                                </div>
                            </div>
 

@@ -1,58 +1,41 @@
 <!DOCTYPE html>
-<html
-        lang="en"
-        xmlns:th="http://www.thymeleaf.org"
-        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- -head- -->
 <div th:replace="~{fragments/frag.html :: head}"></div>
-
-<body id="page-top">
+<!-- End head- -->
+<body>
 <!-- Navigation-->
 <div th:replace="~{fragments/frag.html :: nav}"></div>
-
+<!-- End Navigation-->
 <!-- Header-->
-<header class="bg-primary bg-gradient text-white">
-  <div class="container px-4 text-center">
-    <h1 class="fw-bolder">Login</h1>
+<header class="bg-dark py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Shop in style</h1>
+      <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+    </div>
   </div>
 </header>
-<!-- About section-->
-<section id="about">
+<!-- Section-->
+<section class="row">
   <div class="container px-4">
     <div class="row gx-4 justify-content-center">
       <div class="col-lg-8">
-
         <form th:action="@{/login/processing}" method="post" >
           <div class="form-group">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      name="email"
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email"  class="form-control" id="email" name="email"/>
+              </div>
 
-              />
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"   class="form-control"  id="password" name="password" />
             </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      name="password"
-
-              />
-            </div>
-
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <div
-                class="alert alert-danger" role="alert"
-                th:if="${param.error}"
-        >Wrong User or Password</div>
       </div>
     </div>
   </div>
@@ -60,7 +43,11 @@
 
 
 
-<!-- Footer-->
-<div th:replace="~{fragments/frag.html :: foot}"></div>
+
+
+
+<!--  -footer- -->
+<div th:replace="~{fragments/frag.html :: footer}"></div>
+<!--end footer- -->
 </body>
 </html>

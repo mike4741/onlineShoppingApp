@@ -1,0 +1,36 @@
+package org.perscholas.onlineshoppingapp.models.User;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
+
+@Entity
+@NoArgsConstructor
+//@RequiredArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Slf4j
+public class AuthGroup {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
+
+    @NonNull
+    String email;
+
+    @NonNull
+    String role;
+
+    public AuthGroup(String s, String roleAdmin) {
+        this.email =s;
+        this.role =roleAdmin;
+    }
+}
